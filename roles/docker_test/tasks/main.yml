@@ -1,0 +1,16 @@
+# auto_remove requires docker module and ansible > 2.4, can't use docker-py here
+- name: Create a hello world container
+  docker_container:
+    name: 'hello-world'
+    image: 'hello-world:latest'
+    auto_remove: yes
+    state: started
+    log_driver: 'syslog'
+    log_options:
+      tag: 'helloworld'
+    restart_policy: no
+
+- name: Destroy the hello world container
+  docker_container:
+    name: 'hello-world'
+    state: stopped
