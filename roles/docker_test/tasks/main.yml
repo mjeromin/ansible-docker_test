@@ -3,7 +3,6 @@
   docker_container:
     name: 'hello-world'
     image: 'hello-world:latest'
-    auto_remove: yes
     state: started
     log_driver: 'syslog'
     log_options:
@@ -13,4 +12,4 @@
 - name: Destroy the hello world container
   docker_container:
     name: 'hello-world'
-    state: stopped
+    state: absent
